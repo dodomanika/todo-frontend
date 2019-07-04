@@ -22,12 +22,13 @@ export class WelcomeComponent implements OnInit {
   }
 
   getWelcomeMessage() {
-    console.log(this.service.executeHelloWorldService());
+    // console.log(this.service.executeHelloWorldService());
     this.service.executeHelloWorldService().subscribe(
-      response => this.handleSuccessfullResponse(response)
+      response => this.handleSuccessfullResponse(response),
+      error => this.handleErrorResponse(error)
     );
 
-    console.log("last line of getWelcomeMessage")
+    // console.log("last line of getWelcomeMessage")
     // console.log("get welcome message");
   }
 
@@ -35,5 +36,15 @@ export class WelcomeComponent implements OnInit {
     this.welcomeMessageFromService = response.message
     // console.log(response)
     // console.log(response.message)
+  }
+
+  handleErrorResponse(error): void {
+    // console.log(error)
+    // console.log(error.error)
+    // console.log(error.error.message)
+
+    this.welcomeMessageFromService = error.error.message
+    
+    // throw new Error("Method not implemented.");
   }
 }
