@@ -18,7 +18,7 @@
         <td>{{todo.description}}</td>
         <td>{{todo.targetDate | date}}</td>
         <td>{{todo.done}}</td>
-        <td><button (click)="updateTodo(todo.id)" class="btn btn-warning">Update Todo</button></td>
+        <td><button (click)="updateTodo(todo.id)" class="btn success">Update Todo</button></td>
         <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete Todo</button></td>
       </tr>
     </tbody>
